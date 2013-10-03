@@ -1,5 +1,3 @@
-GitHub: (add repo to GitHub as public/OSS and put URL here!)
-
 AngularJS Goodies
 =================
 
