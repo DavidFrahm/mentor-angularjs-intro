@@ -78,6 +78,10 @@ Don't write DOM manipulation code
 jQuery not required; Try to get by without it
 * jqLite included for selectors
 
+AngularJS help for jQuery mindset:
+* http://blog.artlogic.com/2013/03/06/angularjs-for-jquery-developers/
+* http://stackoverflow.com/questions/14994391/how-do-i-think-in-angularjs-if-i-have-a-jquery-background
+
 Structure
 =========
 
