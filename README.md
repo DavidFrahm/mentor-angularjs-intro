@@ -5,6 +5,7 @@ Angular Seed projects are good reference
 * Basics for learning: https://github.com/angular/angular-seed
 * Real-world: https://github.com/ngbp/ng-boilerplate
 * Overkill?: https://github.com/robertjchristian/angular-enterprise-seed
+* Modular/Scalable: https://github.com/thedigitalself/angular-sprout
 
 Excellent video tutorials: http://egghead.io
 
