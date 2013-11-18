@@ -20,7 +20,7 @@
 }
 
 .menu > li:before {
-  content: "|";
+  content: " | ";
   padding-right: 0.3em;
 }
 

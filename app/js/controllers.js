@@ -2,32 +2,47 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('MyCtrl1', function($rootScope, $scope, $http) {
+angular.module('myApp.controllers', [])
+	.controller('BasicController', function ($scope) {
 
-    var _this = this;
+		$scope.who = 'James';
 
-  	$scope.who = 'Todd';
+		$scope.visible = true;
 
-  	$scope.visible = false;
+		$scope.show = function () {
+			$scope.visible = true;
+		};
 
-  	$scope.show = function() {
-  		$scope.visible = true;
-  	};
+		$scope.hide = function () {
+			$scope.visible = false;
+		};
 
-  	$scope.hide = function() {
-  		$scope.visible = false;
-  	};
+	})
+	.controller('HttpController', function ($scope, $http) {
 
-  	$scope.showList = function() {
-  		console.log('showList');
-  		$http.get('http://tmnt-test-service.herokuapp.com/')
-  		.success(function(result) {
-  			console.log(result);
-  			$scope.turtles = result;
-  		});
-  	};
-  })
-  .controller('MyCtrl2', function() {
+		var _this = this;
 
-  });
+		$scope.turles = null;
+
+	  	_this.showList = function () {
+	  		log('showList()');
+	  		$http.get('http://tmnt-test-service.herokuapp.com/')
+		  		.success(function (result) {
+		  			log(result);
+		  			console.table(result);
+		  			log('turles as json: ' + angular.toJson(result));
+		  			$scope.turtles = result;
+		  		})
+				.error(function (data, status, headers, config) {
+					$scope.logAjaxError(data, status, headers, config);
+				});
+	  	};
+
+	  	$scope.showList = function () {
+	  		_this.showList();
+	  	};
+
+	  	_this.showList();
+
+	})
+;
