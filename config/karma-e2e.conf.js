@@ -1,22 +1,54 @@
-basePath = '../';
+module.exports = function (config) {
+    config.set({
+      basePath: '../',
 
-files = [
-  ANGULAR_SCENARIO,
-  ANGULAR_SCENARIO_ADAPTER,
-  'test/e2e/**/*.js'
-];
+      frameworks: ['ng-scenario'],
 
-autoWatch = false;
+      files: [
+          'test/e2e/**/*.js'
+      ],
 
-browsers = ['Chrome'];
+      exclude: [],
 
-singleRun = true;
+      autoWatch: false,
 
-proxies = {
-  '/': 'http://localhost:8000/'
-};
+      singleRun: true,
 
-junitReporter = {
-  outputFile: 'test_out/e2e.xml',
-  suite: 'e2e'
+      browsers: ['PhantomJS'], // ['Chrome', 'Safari', 'PhantomJS']
+
+      // coverage reporter generates the coverage
+      reporters: ['progress', 'junit', 'coverage'],
+
+      junitReporter: {
+          outputFile: 'test_out/e2e.xml',
+          suite: 'e2e'
+      },
+
+      preprocessors: {
+          // source files, that you wanna generate coverage for
+          // do not include tests or libraries
+          // (these files will be instrumented by Istanbul)
+          'app/js/**/*.js': ['coverage']
+      },
+
+      // optionally, configure the reporter
+      coverageReporter: {
+          type: 'html',
+          dir: 'coverage/'
+      },
+
+      plugins: [
+          'karma-ng-scenario',
+          'karma-junit-reporter',
+          'karma-coverage',
+          'karma-phantomjs-launcher',
+          'karma-chrome-launcher',
+          'karma-safari-launcher',
+          'karma-firefox-launcher'
+      ],
+
+      proxies: {
+          '/': 'http://localhost:8000/'
+      }
+    });
 };

@@ -28,6 +28,9 @@ Initialize and display a (model) value
 
 * View-only, no controller
 
+Templating similar to Handlebars, Mustache
+{{}} is Angular's evaluation directive
+
 View 2
 ------
 
@@ -143,6 +146,12 @@ Filters
 
 Directives
 ==========
+
+Custom components
+
+Teach HTML new tricks
+
+Useful when you find yourself writing imperative code in your view
 
 * To be added for next mentoring session
 
